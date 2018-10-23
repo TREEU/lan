@@ -1,0 +1,126 @@
+
+.layui-nav {
+    position: relative;
+    padding: 0 20px;
+    background-color: #393D49;
+    color: #fff;
+    border-radius: 2px;
+    font-size: 0;
+    box-sizing: border-box;
+}
+.layui-nav .layui-nav-item {
+    position: relative;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+    line-height: 60px;
+}
+.layui-nav * {
+    font-size: 14px;
+}
+.layui-nav .layui-nav-item a {
+    display: block;
+    padding: 0 20px;
+    color: #fff;
+    color: rgba(255,255,255,.7);
+    transition: all .3s;
+    -webkit-transition: all .3s;
+}
+.layui-nav .layui-badge, .layui-nav .layui-badge-dot {
+    position: absolute;
+    top: 50%;
+    margin: -8px 6px 0;
+}
+.layui-badge {
+    height: 18px;
+    line-height: 18px;
+}
+.layui-badge, .layui-badge-dot, .layui-badge-rim {
+    position: relative;
+    display: inline-block;
+    padding: 0 6px;
+    font-size: 12px;
+    text-align: center;
+    background-color: #FF5722;
+    color: #fff;
+    border-radius: 2px;
+}
+.layui-nav .layui-badge, .layui-nav .layui-badge-dot {
+    position: absolute;
+    top: 50%;
+    margin: -8px 6px 0;
+}
+
+.layui-badge-dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border-radius: 50%;
+
+}
+.layui-badge, .layui-badge-dot,{
+    position: relative;
+    display: inline-block;
+    padding: 0 6px;
+    font-size: 12px;
+    text-align: center;
+    background-color: #FF5722;
+    color: #fff;
+    border-radius: 2px;
+}
+.nav li {
+	position: relative;
+}
+.nav .layui-nav-item:nth-child(2)::after{
+	content: "";
+	position: absolute;
+	left: 0;
+    bottom: 0;
+    width: 82px;
+    height: 5px;
+    background-color: #5FB878;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    /* padding-left: 20px; */
+   margin-left: 15px;
+}
+.content{
+	margin-top: 20px;
+}
+#container{
+	height:100%;
+	width: 82%;
+	 margin-left: 11%;
+}
+
+.content .title{
+	margin-left: 11%;
+	margin-bottom: -5%;
+}
+.content .title h3{
+	font-size: 20px;
+	line-height: 40px;
+	font-weight: bold;
+}
+.content .title p{
+	font-size: 16px;
+}
+.ma-down {
+	text-align: center;
+}
+.ma-down a{
+	width: 200px;
+	  display: inline-block;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 18px;
+    background-color: #5FB878;
+    color: #fff;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 14px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}

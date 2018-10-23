@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<title>首页</title>
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="style.css">
+	 <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+</head>
+<body>
+	<div class="nav">
+		<ul class="layui-nav">
+			<li class="layui-nav-item">
+				<a href="">控制台<span class="layui-badge">9</span></a>
+			</li>
+			<li class="layui-nav-item">
+				<a href="">获取授权码<span class="layui-badge-dot"></span></a>
+			</li>
+		</ul>
+	</div>
+	<div class="content">
+		<div class="title">
+			<h3>我们的用户量</h3>
+			<p>城市分布（数据来源：近3个月统计）</p>
+		</div>
+	 <div id="echarts-line" style="height:400px;">
+          <div id="container"></div>
+      </div>
+     </div>
+     <div class="ma-down">
+     	<a href="#">获取授权码</a>
+    </div>
+     </div>
+</body>
+<script type="text/javascript">
+
+	var dom = document.getElementById("container");
+	var myChart = echarts.init(dom);
+            window.onresize = myChart.resize;  // 适应屏幕放大缩小
+            var app = {};
+            
+
+           app.title = '极坐标系下的堆叠柱状图';
+
+var data = [
+     [3000, 8500, 6785.71],
+    [2000, 9000, 6825],
+    [2000, 8700, 4463.33],
+    [2500, 6600, 3793.83],
+    [2000, 5000, 3060],
+    [2000, 5000, 3222.33],
+    [2500, 5000, 3133.33],
+    [1800, 5000, 3100],
+    [2000, 4500, 2750],
+    [2000, 5000, 2500],
+    [1800, 4000, 2433.33],
+    [2000, 4700, 4375],
+    [2500, 4800, 4150],
+    [2500, 5300, 4100],
+    [2600, 4500, 4057.14],
+    [2500, 4600, 4037.5],
+    [2500, 5417.54, 3905.85],
+    [2500, 5000, 1775],
+    [2000, 4800, 1650]
+];
+var cities = ['北京', '上海', '深圳', '广州', '苏州', '杭州', '南京', '福州', '青岛', '济南', '长春', '大连', '温州', '郑州', '武汉', '成都', '东莞', '沈阳', '烟台'];
+var barHeight = 50;
+
+option = {
+    // title: {
+    //     text: '我们的用户量',
+    //     subtext: '城市分布（数据来源：近3个月统计）'
+    // },
+    legend: {
+        show: true,
+        data: ['用户数量', '均值']
+    },
+    grid: {
+        top: 100
+    },
+    angleAxis: {
+        type: 'category',
+        data: cities
+    },
+    tooltip: {
+        show: true,
+        formatter: function (params) {
+            var id = params.dataIndex;
+            return cities[id] + '<br>最低：' + data[id][0] + '<br>最高：' + data[id][1] + '<br>平均：' + data[id][2];
+        }
+    },
+    radiusAxis: {
+    },
+    polar: {
+    },
+    series: [{
+        type: 'bar',
+        itemStyle: {
+            normal: {
+                color: 'transparent'
+            }
+        },
+        data: data.map(function (d) {
+            return d[0];
+        }),
+        coordinateSystem: 'polar',
+        stack: '最大最小值',
+        silent: true
+    }, {
+        type: 'bar',
+        data: data.map(function (d) {
+            return d[1] - d[0];
+        }),
+        coordinateSystem: 'polar',
+        name: '价格范围',
+        stack: '最大最小值'
+    }, {
+        type: 'bar',
+        itemStyle: {
+            normal: {
+                color: 'transparent'
+            }
+        },
+        data: data.map(function (d) {
+            return d[2] - barHeight;
+        }),
+        coordinateSystem: 'polar',
+        stack: '均值',
+        silent: true,
+        z: 10
+    }, {
+        type: 'bar',
+        data: data.map(function (d) {
+            return barHeight * 2
+        }),
+        coordinateSystem: 'polar',
+        name: '均值',
+        stack: '均值',
+        barGap: '-100%',
+        z: 10
+    }],
+    legend: {
+        show: true,
+        data: ['A', 'B', 'C']
+    }
+};
+
+            if (option && typeof option === "object") {
+            	myChart.setOption(option, true);
+            }
+        </script>
+</html>
