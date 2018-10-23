@@ -11,31 +11,42 @@
        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <script src="jquery.min.js"></script>
+   
 </head>
 <body>
-	<div class="nav">
-		<ul class="layui-nav">
-			<li class="layui-nav-item">
-				<a href="">控制台<span class="layui-badge">9</span></a>
-			</li>
-			<li class="layui-nav-item">
-				<a href="">获取授权码<span class="layui-badge-dot"></span></a>
-			</li>
-		</ul>
-	</div>
-	<div class="content">
-		<div class="title">
-			<h3>我们的用户量</h3>
-			<p>城市分布（数据来源：近3个月统计）</p>
-		</div>
-	 <div id="echarts-line" style="height:400px;">
-          <div id="container"></div>
-      </div>
-     </div>
-     <div class="ma-down">
-     	<a href="#">获取授权码</a>
+    <div class="all ">
+       <div class="nav">
+          <ul class="layui-nav">
+             <li class="layui-nav-item">
+                <a href="function.html">控制台<span class="layui-badge">5</span></a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;" class="boom">获取授权码<span class="layui-badge-dot"></span></a>
+            </li>
+        </ul>
     </div>
+    <div class="content">
+      <div class="title">
+         <h3>我们的用户量</h3>
+         <p>城市分布（数据来源：近3个月统计）</p>
      </div>
+     <div id="echarts-line" style="height:400px;">
+      <div id="container"></div>
+  </div>
+</div>
+<div class="ma-down">
+  <a href="#">获取授权码</a>
+</div>
+</div>
+
+<div class="win-boom none">
+    <div id="popup-dialog-mask" class="lodding-mask"></div>
+    <div id="popup-dialog" class="popup-dialog"><h3 id="popup-dialog-title">授权</h3><p id="popup-dialog-msg" class="message "><img src="images/ma.png" alt=""></p><textarea name="" value="文字1"></textarea><div class="ui-grid-a group"><div class="ui-block-a"><a href="#">OK</a></div><div class="ui-block-b">Cancel</div></div></div>
+</div>
+<div class="footer">
+    联系我们
+</div>
 </body>
 <script type="text/javascript">
 
@@ -45,33 +56,33 @@
             var app = {};
             
 
-           app.title = '极坐标系下的堆叠柱状图';
+            app.title = '极坐标系下的堆叠柱状图';
 
-var data = [
-     [3000, 8500, 6785.71],
-    [2000, 9000, 6825],
-    [2000, 8700, 4463.33],
-    [2500, 6600, 3793.83],
-    [2000, 5000, 3060],
-    [2000, 5000, 3222.33],
-    [2500, 5000, 3133.33],
-    [1800, 5000, 3100],
-    [2000, 4500, 2750],
-    [2000, 5000, 2500],
-    [1800, 4000, 2433.33],
-    [2000, 4700, 4375],
-    [2500, 4800, 4150],
-    [2500, 5300, 4100],
-    [2600, 4500, 4057.14],
-    [2500, 4600, 4037.5],
-    [2500, 5417.54, 3905.85],
-    [2500, 5000, 1775],
-    [2000, 4800, 1650]
-];
-var cities = ['北京', '上海', '深圳', '广州', '苏州', '杭州', '南京', '福州', '青岛', '济南', '长春', '大连', '温州', '郑州', '武汉', '成都', '东莞', '沈阳', '烟台'];
-var barHeight = 50;
+            var data = [
+            [3000, 8500, 6785.71],
+            [2000, 9000, 6825],
+            [2000, 8700, 4463.33],
+            [2500, 6600, 3793.83],
+            [2000, 5000, 3060],
+            [2000, 5000, 3222.33],
+            [2500, 5000, 3133.33],
+            [1800, 5000, 3100],
+            [2000, 4500, 2750],
+            [2000, 5000, 2500],
+            [1800, 4000, 2433.33],
+            [2000, 4700, 4375],
+            [2500, 4800, 4150],
+            [2500, 5300, 4100],
+            [2600, 4500, 4057.14],
+            [2500, 4600, 4037.5],
+            [2500, 5417.54, 3905.85],
+            [2500, 5000, 1775],
+            [2000, 4800, 1650]
+            ];
+            var cities = ['北京', '上海', '深圳', '广州', '苏州', '杭州', '南京', '福州', '青岛', '济南', '长春', '大连', '温州', '郑州', '武汉', '成都', '东莞', '沈阳', '烟台'];
+            var barHeight = 50;
 
-option = {
+            option = {
     // title: {
     //     text: '我们的用户量',
     //     subtext: '城市分布（数据来源：近3个月统计）'
@@ -150,8 +161,19 @@ option = {
     }
 };
 
-            if (option && typeof option === "object") {
-            	myChart.setOption(option, true);
-            }
-        </script>
+if (option && typeof option === "object") {
+   myChart.setOption(option, true);
+};
+
+$(".layui-nav-item .boom").click(function(event) {
+    $(".win-boom").show();
+});
+$(".ma-down a").click(function(event) {
+    $(".win-boom").show();
+});
+$(".ui-block-b").click(function(event) {
+    $(".win-boom").hide(500);
+});
+</script>
+
 </html>

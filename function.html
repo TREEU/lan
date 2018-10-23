@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<title>功能页</title>
+	<link rel="stylesheet" href="">
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="style.css">
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+	
+	<div class="nav">
+		<ul class="layui-nav">
+			
+			<li class="layui-nav-item">
+				<a href="index.html">新授权<span class="layui-badge-dot"></span></a>
+			</li>
+			<li class="layui-nav-item myself" lay-unselect="">
+				<a href="javascript:;"><img src="images/a.jpg" class="layui-nav-img">我<span class="layui-nav-more"></span></a>
+				<dl class="layui-nav-child layui-anim layui-anim-upbit none">
+					<dd><a href="javascript:;">安全退出</a></dd>
+				</dl>
+			</li>
+		</div>
+		<div class="function-content">
+			<div class="canvas-box">
+				<canvas id="canvas" width="100%" height="100%"> 您的浏览器不支持canvas标签，请您更换浏览器 </canvas>
+				<script src="word.js"></script>
+				<div class="fun-box" >
+					<div class="search">
+						<input type="text" value="功能搜索"><span>搜索</span>
+					</div>
+					<div class="five-need">
+						<ul class="featured-list">
+							<li class="featured-list__item">
+								<a href="#" class="featured-list__link">
+									<img class="featured-list__img" src="images/sw1.svg" alt="Seaweed 1">
+									<h3 class="featured-list__title">Green Glory</h3>
+								</a>
+							</li>
+							<li class="featured-list__item">
+								<a href="#" class="featured-list__link">
+									<img class="featured-list__img" src="images/sw2.svg" alt="Seaweed 2">
+									<h3 class="featured-list__title">Mystic Crunch</h3>
+								</a>
+							</li>
+							<li class="featured-list__item">
+								<a href="#" class="featured-list__link">
+									<img class="featured-list__img" src="images/sw3.svg" alt="Seaweed 3">
+									<h3 class="featured-list__title">Fine Jelly</h3>
+								</a>
+							</li>
+							<li class="featured-list__item">
+								<a href="#" class="featured-list__link">
+									<img class="featured-list__img" src="images/sw4.svg" alt="Seaweed 4">
+									<h3 class="featured-list__title">Nutri Bomb</h3>
+								</a>
+							</li>
+							<li class="featured-list__item">
+								<a href="#" class="featured-list__link">
+									<img class="featured-list__img" src="images/sw5.svg" alt="Seaweed 5">
+									<h3 class="featured-list__title">Holy Water</h3>
+								</a>
+							</li>
+							<li class="featured-list__item">
+								<a href="#" class="featured-list__link">
+									<img class="featured-list__img" src="images/sw6.svg" alt="Seaweed 6">
+									<h3 class="featured-list__title">Juicy Magic</h3>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="add-someone">
+						<div class="panel red-bg">
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-xs-4">
+										<i class="fa fa-money"></i>
+									</div>
+									<div class="col-xs-8">
+										<span class="state-title"> Dollar Profit Today </span>
+										<h4>$ 23,232</h4>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="footer">
+			联系我们
+		</div>
+</body>
+<script>
+	$('.myself').click(function(event) {
+		if($('.layui-nav-child').is(':hidden')){
+				$(this).find('.layui-nav-more').css({
+				borderColor: ' transparent transparent rgba(255,255,255,.7) transparent',
+				top:"40%"
+			});
+			$('.layui-nav-child').show();
+		}else{
+			$(this).find('.layui-nav-more').css({
+				borderColor: ' rgba(255,255,255,.7) transparent transparent  transparent',
+				top:"50%"
+			});
+			$('.layui-nav-child').hide();
+		}
+		
+		
+	});
+</script>
+</html>
