@@ -5,13 +5,128 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
 	<title>功能页</title>
-	<link rel="stylesheet" href="">
-	<link rel="stylesheet" href="reset.css">
-	<link rel="stylesheet" href="style.css">
-    <script src="jquery.min.js"></script>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+    <script src="js/echarts.common.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/Progress.js"></script>
 </head>
 <body>
-	
+    <div class="win-boom win-boom-1">
+    <div id="popup-dialog-mask" class="lodding-mask"></div>
+    <div id="popup-dialog" class="popup-dialog fun-pop">
+       <h1>检测到您本次登入的微信账号为:</h1>
+       <hr>
+       <div class="person">
+           <span class="person-img"><img src="images/a.jpg" alt=""></span>
+           <span class="person-name">Eyes<i>MR121012</i></span>
+       </div>
+       <hr>
+       <form class="form">
+        <input type="password" placeholder="请输入密码" class="password none">
+        <a href="javascript:;" id="login-button" class="btn">OK</a>
+    </form>
+    </div>
+</div>
+<div class="win-boom win-boom-2">
+    <div id="popup-dialog-mask" class="lodding-mask"></div>
+    <div id="popup-dialog" class="popup-dialog fun-pop">
+       <h1>正在清理,请勿关闭</h1>
+       <hr>
+       <canvas id="canvas1"  class="none"></canvas>
+    <canvas id="canvas2" class="none"></canvas>
+    <canvas id="canvas3"  class="none"></canvas>
+    <canvas id="canvas4"  class="none"></canvas>
+    <canvas id="canvas5"  class="none"></canvas>
+    <canvas id="canvas6"  class="none"></canvas>
+    <canvas id="canvas7"  class="none"></canvas>
+    <canvas id="canvas8"  ></canvas>
+    <canvas id="canvas9"  class="none"></canvas>
+    <canvas id="canvas10"  class="none"></canvas>
+       <hr>
+       <form class="form">
+        <input type="password" placeholder="请输入密码" class="password none">
+        <a href="javascript:;" id="login-button" class="btn">OK</a>
+    </form>
+    </div>
+</div>
+<div class="win-boom win-boom-3">
+    <div id="popup-dialog-mask" class="lodding-mask"></div>
+    <div id="popup-dialog" class="popup-dialog fun-pop">
+       <h1>定位微信好友</h1>
+       <hr>
+        <img src="images/a.jpg" alt="">
+       <hr>
+       <form class="form">
+        <input type="password" placeholder="请输入密码" class="password none">
+        <a href="javascript:;" id="login-button" class="btn">一键下载</a>
+    </form>
+    </div>
+</div>
+<div class="win-boom win-boom-4">
+    <div id="popup-dialog-mask" class="lodding-mask"></div>
+    <div id="popup-dialog" class="popup-dialog fun-pop fun-pop-1">
+       <h1>查看共同好友</h1>
+       <hr>
+       <form class="form">
+        <input type="text" placeholder="请输账号" class="user">
+        <a href="javascript:;" id="login-button" class="btn">OK</a>
+    </form>
+    </div>
+    <div id="popup-dialog" class="popup-dialog fun-pop  fun-pop-2 none">
+       <h1>我们的共同好友是</h1>
+       <hr>
+       <textarea></textarea>
+       <hr>
+       <form class="form">
+        <a href="javascript:;" id="login-button" class="btn">OK</a>
+    </form>
+    </div>
+</div>
+<div class="win-boom win-boom-5">
+    <div id="popup-dialog-mask" class="lodding-mask"></div>
+    <div id="popup-dialog" class="popup-dialog fun-pop fun-pop-1">
+       <h1>查看最近聊天时间</h1>
+       <hr>
+       <form class="form">
+        <input type="text" placeholder="请输账号" class="user">
+        <a href="javascript:;" id="login-button" class="btn">OK</a>
+    </form>
+    </div>
+    <div id="popup-dialog" class="popup-dialog fun-pop  fun-pop-2 none">
+       <h1>最近聊天时间是</h1>
+       <hr>
+       <textarea></textarea>
+       <hr>
+       <form class="form">
+        <a href="javascript:;" id="login-button" class="btn">OK</a>
+    </form>
+    </div>
+</div>
+<div class="win-boom win-boom-6">
+    <div id="popup-dialog-mask" class="lodding-mask"></div>
+    <div id="popup-dialog" class="popup-dialog fun-pop fun-pop-1">
+       <h1>查看最近朋友圈访客</h1>
+       <hr>
+       <form class="form">
+        <input type="text" placeholder="请输账号" class="user">
+        <a href="javascript:;" id="login-button" class="btn">OK</a>
+    </form>
+    </div>
+    <div id="popup-dialog" class="popup-dialog fun-pop  fun-pop-2 none">
+       <h1>最近朋友圈访客是</h1>
+       <hr>
+       <textarea></textarea>
+       <hr>
+       <form class="form">
+        <a href="javascript:;" id="login-button" class="btn">OK</a>
+    </form>
+    </div>
+</div>
+	<div class="all">
 	<div class="nav">
 		<ul class="layui-nav">
 			
@@ -27,66 +142,60 @@
 		</div>
 		<div class="function-content">
 			<div class="canvas-box">
-				<canvas id="canvas" width="100%" height="100%"> 您的浏览器不支持canvas标签，请您更换浏览器 </canvas>
-				<script src="word.js"></script>
+				<canvas id="canvas" width="100%" height="2000px"> 您的浏览器不支持canvas标签，请您更换浏览器 </canvas>
+				<script src="js/word.js"></script>
 				<div class="fun-box" >
 					<div class="search">
 						<input type="text" value="功能搜索"><span>搜索</span>
 					</div>
 					<div class="five-need">
 						<ul class="featured-list">
-							<li class="featured-list__item">
+							<li class="featured-list__item f-1">
 								<a href="#" class="featured-list__link">
 									<img class="featured-list__img" src="images/sw1.svg" alt="Seaweed 1">
-									<h3 class="featured-list__title">Green Glory</h3>
+									<h3 class="featured-list__title">僵尸粉清除</h3>
 								</a>
 							</li>
-							<li class="featured-list__item">
+							<li class="featured-list__item f-2">
 								<a href="#" class="featured-list__link">
 									<img class="featured-list__img" src="images/sw2.svg" alt="Seaweed 2">
-									<h3 class="featured-list__title">Mystic Crunch</h3>
+									<h3 class="featured-list__title">定位微信好友位置</h3>
 								</a>
 							</li>
-							<li class="featured-list__item">
+							<li class="featured-list__item  f-3">
 								<a href="#" class="featured-list__link">
 									<img class="featured-list__img" src="images/sw3.svg" alt="Seaweed 3">
-									<h3 class="featured-list__title">Fine Jelly</h3>
+									<h3 class="featured-list__title">查看微信共同好友</h3>
 								</a>
 							</li>
-							<li class="featured-list__item">
+							<li class="featured-list__item  f-4">
 								<a href="#" class="featured-list__link">
 									<img class="featured-list__img" src="images/sw4.svg" alt="Seaweed 4">
-									<h3 class="featured-list__title">Nutri Bomb</h3>
+									<h3 class="featured-list__title">查看朋友圈最近访问</h3>
 								</a>
 							</li>
-							<li class="featured-list__item">
+							<li class="featured-list__item  f-5">
 								<a href="#" class="featured-list__link">
 									<img class="featured-list__img" src="images/sw5.svg" alt="Seaweed 5">
-									<h3 class="featured-list__title">Holy Water</h3>
+									<h3 class="featured-list__title">查看最近一次聊天时间</h3>
 								</a>
 							</li>
-							<li class="featured-list__item">
+							<li class="featured-list__item  f-6">
 								<a href="#" class="featured-list__link">
 									<img class="featured-list__img" src="images/sw6.svg" alt="Seaweed 6">
-									<h3 class="featured-list__title">Juicy Magic</h3>
+									<h3 class="featured-list__title">更多功能 敬请期待</h3>
 								</a>
 							</li>
 						</ul>
 					</div>
 					<div class="add-someone">
 						<div class="panel red-bg">
-							<div class="panel-body">
-								<div class="row">
-									<div class="col-xs-4">
-										<i class="fa fa-money"></i>
-									</div>
-									<div class="col-xs-8">
-										<span class="state-title"> Dollar Profit Today </span>
-										<h4>$ 23,232</h4>
-									</div>
-								</div>
-							</div>
+							<span>数据统计</span>
+							<i class="arr"></i>
 						</div>
+						 <div id="main" style="height:320px;">
+      <div id="container"></div>
+  </div>
 					</div>
 				</div>
 			</div>
@@ -96,8 +205,11 @@
 		<div class="footer">
 			联系我们
 		</div>
+    </div>
 </body>
 <script>
+  
+
 	$('.myself').click(function(event) {
 		if($('.layui-nav-child').is(':hidden')){
 				$(this).find('.layui-nav-more').css({
@@ -112,8 +224,139 @@
 			});
 			$('.layui-nav-child').hide();
 		}
-		
-		
 	});
+    var i = 0;
+   $('.win-boom-1 #login-button').click(function(event) {
+    if($(this).siblings('.password').is(':hidden')){
+        
+         $(this).siblings('.password').show();
+    }else{
+        $(this).parents(".win-boom-1").hide();
+         $(this).siblings('.password').hide();
+    }
+       
+    });
+    $('.win-boom-2 #login-button').click(function(event) {
+
+        $(this).parents(".win-boom-2").hide();
+       
+    });
+    $('.win-boom-3 #login-button').click(function(event) {
+
+        $(this).parents(".win-boom-3").hide();
+       
+    });
+     $('.win-boom-4 .fun-pop-1 #login-button').click(function(event) {
+
+        $(".fun-pop-1").hide();
+
+       $(".fun-pop-2").show();
+    });
+    $('.win-boom-4 .fun-pop-2 #login-button').click(function(event) {
+
+       $(this).parents(".win-boom-4").hide();
+    });
+     $('.win-boom-5 .fun-pop-1 #login-button').click(function(event) {
+
+        $(".fun-pop-1").hide();
+
+       $(".fun-pop-2").show();
+    });
+    $('.win-boom-5 .fun-pop-2 #login-button').click(function(event) {
+
+       $(this).parents(".win-boom-5").hide();
+    });
+$('.win-boom-6 .fun-pop-1 #login-button').click(function(event) {
+
+        $(".fun-pop-1").hide();
+
+       $(".fun-pop-2").show();
+    });
+    $('.win-boom-6 .fun-pop-2 #login-button').click(function(event) {
+
+       $(this).parents(".win-boom-6").hide();
+    });
+  $('.f-1').click(function(event) {
+        $(".win-boom-1").show();
+       $(".win-boom-2").show();
+
+   });
+      $('.f-2').click(function(event) {
+          $(".win-boom-1").show();
+       $(".win-boom-3").show();
+   });
+      $('.f-3').click(function(event) {
+          $(".win-boom-1").show();
+       $(".win-boom-4").show();
+   });
+        $('.f-4').click(function(event) {
+              $(".win-boom-1").show();
+
+       $(".win-boom-6").show();
+   });
+    $('.f-5').click(function(event) {
+       $(".win-boom-1").show();
+
+       $(".win-boom-5").show();
+   });
+  
+    
+
+   // var g =$('.win-boom-2 canvas').length;
+   // for(var n=0;n<g;n++){
+   //      setInterval(function(){
+   //          $('.win-boom-2 canvas')[4].removeClass('none').siblings('').addClass('none');
+   //      },1000)
+   // }
+</script>
+<script type="text/javascript">
+     var myChart = echarts.init(document.getElementById('main'));
+   option = {
+    title : {
+    
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+   
+    calculable : true,
+    series : [
+        
+        {
+            name:'面积模式',
+            type:'pie',
+            radius : [30, 110],
+            center : ['50%', '40%'],
+            roseType : 'area',
+            data:[
+                {value:10, name:'查看最近聊天时间'},
+                {value:5, name:'查看朋友圈最近访问'},
+                {value:15, name:'查看共同好友'},
+                {value:25, name:'删除僵尸粉'},
+                {value:20, name:'定位好友'},
+            ]
+        }
+    ]
+};
+myChart.setOption(option);
+
+
+
+</script>
+<script type="text/javascript">
+    window.onload = function(){
+        new Progress().renderOne('canvas1',100,5,10);
+        new Progress().renderOne('canvas2',100,5,20);
+        new Progress().renderOne('canvas3',100,5,30);
+        new Progress().renderOne('canvas4',100,5,40);
+        new Progress().renderOne('canvas5',100,5,50);
+        new Progress().renderOne('canvas6',100,5,60);
+        new Progress().renderOne('canvas7',100,5,70);
+        new Progress().renderOne('canvas8',100,5,80);
+        new Progress().renderOne('canvas9',100,5,90);
+        new Progress().renderOne('canvas10',100,5,100);
+    }
 </script>
 </html>
